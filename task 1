@@ -1,0 +1,49 @@
+// Завдання 1, варіант 7
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int i, n;
+
+    cout << "Розробник: Яник Олександр, група КН 2/1" << endl;
+    cout << "Лабораторна робота №5, завдання 1 (варіант 7)" << endl;
+    cout << "Сума натуральних чисел, кратних 5, з проміжку від i до n" << endl << endl;
+
+    cout << "Введіть натуральне i: ";
+    cin >> i;
+    cout << "Введіть натуральне n (n > i): ";
+    cin >> n;
+
+    while (i < 1 || n <= i)
+    {
+        cout << "Помилка: потрібно i >= 1 та n > i. Введіть i і n ще раз: ";
+        cin >> i >> n;
+    }
+
+    cout << endl << "Початкові значення: i = " << i << ", n = " << n << endl;
+    cout << "Числа, кратні 5: ";
+
+    long long sum = 0;
+    int count = 0;
+    int k = i;
+
+    while (k <= n)
+    {
+        if (k % 5 == 0)
+        {
+            cout << k << " ";
+            sum += k;
+            count++;
+        }
+        k++;
+    }
+
+    if (count == 0)
+        cout << "таких чисел у проміжку немає";
+
+    cout << endl << "Кількість таких чисел: " << count << endl;
+    cout << "Сума = " << sum << endl;
+
+    return 0;
+}
