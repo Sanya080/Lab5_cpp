@@ -1,0 +1,52 @@
+// Завдання 2, варіант 7
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    double x;
+    int n;
+
+    cout << "Розробник: Яник Олександр, група КН 2/1" << endl << endl;
+
+    cout << "Введіть дійсне x: ";
+    cin >> x;
+
+    do
+    {
+        cout << "Введіть натуральне n (n >= 1): ";
+        cin >> n;
+        if (n < 1)
+            cout << "Помилка: n має бути натуральним числом!" << endl;
+    } while (n < 1);
+
+    cout << endl << "Початкові значення: x = " << x << ", n = " << n << endl << endl;
+    cout << "+-----+----------------+----------------+" << endl;
+    cout << "|  k  |      x^k       |   sin(x^k)     |" << endl;
+    cout << "+-----+----------------+----------------+" << endl;
+
+    double y = 0;
+    double p = 1;
+    int k = 1;
+
+    do
+    {
+        p *= x;
+        double term = sin(p);
+        y += term;
+
+        cout << "| " << setw(3) << k << " | " << setw(14) << setprecision(6) << p
+             << " | " << setw(14) << fixed << setprecision(6) << term << " |" << endl;
+        cout.unsetf(ios::fixed);
+
+        k++;
+    } while (k <= n);
+
+    cout << "+-----+----------------+----------------+" << endl;
+    cout << fixed << setprecision(6);
+    cout << "Результат y = " << y << endl;
+
+    return 0;
+}
