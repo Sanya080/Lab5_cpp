@@ -1,0 +1,40 @@
+// Завдання 3, варіант 7
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    const int TOTAL = 240;
+    const int LAZ = 40;
+    const int PAZ = 30;
+
+    cout << "Розробник: Яник Олександр, група КН 2/1" << endl << endl;
+
+    int maxLaz = TOTAL / LAZ;
+    int maxPaz = TOTAL / PAZ;
+    int count = 0;
+
+    cout << "Автобусів ЛАЗ може бути від 0 до " << maxLaz << ", ПАЗ - від 0 до " << maxPaz << endl << endl;
+    cout << "+----+-----+-----+--------------+" << endl;
+    cout << "| №  | ЛАЗ | ПАЗ | Всього місць |" << endl;
+    cout << "+----+-----+-----+--------------+" << endl;
+
+    for (int a = 0; a <= maxLaz; a++)
+    {
+        for (int b = 0; b <= maxPaz; b++)
+        {
+            if (a * LAZ + b * PAZ == TOTAL)
+            {
+                count++;
+                cout << "| " << setw(2) << count << " | " << setw(3) << a << " | "
+                     << setw(3) << b << " | " << setw(12) << a * LAZ + b * PAZ << " |" << endl;
+            }
+        }
+    }
+
+    cout << "+----+-----+-----+--------------+" << endl;
+    cout << "Загальна кількість можливих варіантів: " << count << endl;
+
+    return 0;
+}
